@@ -3,21 +3,27 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    let stack = [];
-    let map = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    };
-    for (let ch of s) {
-        if (ch === '(' || ch === '{' || ch === '[') {
-            stack.push(ch);
-        } else {
-            if (stack.pop() !== map[ch]) {
-                return false;
+     let open = []
+     let obj = {
+        ")" : "(",
+        "}" : "{",
+     "]" : "["
+     }
+
+    for(let i=0;i<s.length;i++){
+       
+        if(s[i]=="("||s[i]=="{"||s[i]=="["){
+            open.push(s[i])
+            console.log(s[i])
+        }else{
+            let x =open.pop()
+            console.log(obj[s[i]])
+            if(!(x==obj[s[i]])){
+                return false
             }
+           
         }
     }
-
-    return stack.length === 0;
-}
+    return open.length==0
+    
+};
