@@ -20,5 +20,4 @@ var maxProfit = function(prices) {
     }
 
     return maxprofit
-    
 };
